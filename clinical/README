@@ -1,0 +1,22 @@
+How to use
+
+All bam files that were aligned to the same reference could be run together
+The following scripts/documents have to be in the same folder as clinical_loop.sh:
+	clinical1.r
+	clinical2.r
+	full_panel.csv
+
+full_panel.csv is freely adjustable, the mandatory columns are:
+Gene.s	Condition.ref	Condition.s.	GRCh37Chromosome	GRCh37Location	GRCh38Chromosome	GRCh38Location	dbSNP.ID		ref	alt	label
+
+1) create a bamlist.txt file with paths and full filenames
+2) run clinical_loop.sh with the following command, listed arguments are mandatory:
+	
+	./clinical_loop.sh -i bamlist.txt
+
+Optional arguments:
+	-c	minimum variant coverage, default is 1
+	-t	end trimming base number, default is 2
+	-b	reference name [hg37/hg19/hg38], default is hg19
+	-j	number of threads, default is 12
+	-o	output directory, default is input directory for each bam
